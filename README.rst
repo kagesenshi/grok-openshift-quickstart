@@ -59,6 +59,9 @@ domain to each of the applications. To setup virtual hosting for your
 Grok application, you will need to configure ``deploy.ini`` with some
 rewrite rules. Follow the steps below:
 
+Edit ``setup.py`` and add ``WSGIRewrite`` into ``install_requires``. This will
+install the WSGI filter which will do the URL rewriting for virtual hosting.
+
 Edit ``etc/deploy.ini.in``. Find a section called ``pipeline:main``, and add
 ``rewrite`` as the first item in the pipeline. The section should appear like
 this now::
