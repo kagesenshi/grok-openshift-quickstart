@@ -6,7 +6,7 @@ do
     . $f
 done
 
-if [ -f ${OPENSHIFT_REPO_DIR}/bin/instance ]
+if [ -f ${OPENSHIFT_REPO_DIR}/bin/daemon ]
 then
-    ${OPENSHIFT_REPO_DIR}/bin/instance stop
+        ${OPENSHIFT_REPO_DIR}/bin/daemon stop
 fi
