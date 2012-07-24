@@ -6,6 +6,8 @@ do
     . $f
 done
 
+export PYTHON_EGG_CACHE="${OPENSHIFT_DATA_DIR}/egg-cache/"
+
 if [ -f ${OPENSHIFT_REPO_DIR}/bin/daemon ]
 then
     ${OPENSHIFT_REPO_DIR}/bin/daemon start
