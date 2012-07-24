@@ -35,7 +35,8 @@ Add this upstream Plone repo::
   git remote add upstream -m master git@github.com:kagesenshi/grok-openshift-quickstart
   git pull -s recursive -X theirs upstream master
 
-Initialize your application and commit it::
+Initialize your application and commit it (replace ``MyGrokApplication`` with
+your application project name)::
   
   python initialize.py MyGrokApplication
   git commit
