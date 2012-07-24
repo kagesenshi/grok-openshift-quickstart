@@ -66,23 +66,23 @@ this now::
   [pipeline:main]
   pipeline = rewrite accesslogging evalexception fanstatic grok
 
-At the bottom of the file, add these lines. Replace ``mysite`` with an 
-identifier for the entry, replace ``myapp`` with your application ID,
-and replace ``www.mysite.com`` with the virtual hosting domain::
+At the bottom of the file, add these lines. Replace ``examplesite`` 
+with an identifier for the entry, replace ``app`` with your application ID,
+and replace ``www.example.com`` with the virtual hosting domain::
 
   [filter:rewrite]
   use = egg:WSGIRewrite
-  rulesets = mysite-http mysite-https
+  rulesets = examplesite-http examplesite-https
   
-  [wsgirewrite:mysite-http]
-  cond1 = %{HTTP_HOST} ^www.mysite.com:8080$
+  [wsgirewrite:examplesite-http]
+  cond1 = %{HTTP_HOST} ^www.example.com$
   cond2 = %{HTTPS} off
-  rule1 = ^/(.*) myapp/++vh++http:www.mysite.com:8080/++/$1
+  rule1 = ^/(.*) app/++vh++http:www.example.com/++/$1
   
-  [wsgirewrite:mysite-https]
-  cond1 = %{HTTP_HOST} ^www.mysite.com:8080$
+  [wsgirewrite:examplesite-https]
+  cond1 = %{HTTP_HOST} ^www.example.com$
   cond2 = %{HTTPS} on
-  rule1 = ^/(.*) myapp/++vh++https:www.mysite.com:8080/++/$1
+  rule1 = ^/(.*) app/++vh++https:www.example.com/++/$1
   
 
 To add multiple domains, add them as additional rulesets in 
