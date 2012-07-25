@@ -56,9 +56,13 @@ Virtual hosting
 ---------------
 
 You may have multiple Grok applications per deployment and you may assign a 
-domain to each of the applications. To setup virtual hosting for your
-Grok application, you will need to configure ``deploy.ini`` with some
-rewrite rules. Follow the steps below:
+domain to each of the applications. Normally virtual hosting for Grok is done
+at the Apache/Nginx/Varnish reverse proxy settings. However, as we don't have 
+access to those configurations in a DIY cartridge, we have to use a different 
+way.
+
+To setup virtual hosting for your Grok application on OpenShift, you will need
+to configure ``deploy.ini`` with some rewrite rules. Follow the steps below:
 
 Add your domain as an alias of your application::
   
